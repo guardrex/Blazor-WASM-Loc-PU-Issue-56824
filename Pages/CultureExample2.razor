@@ -1,0 +1,29 @@
+﻿@page "/culture-example-2"
+@using System.Globalization
+@inject IStringLocalizer<CultureExample2> Loc
+
+<h1>Culture Example 2</h1>
+
+<p>
+    <b>CurrentCulture</b>: @CultureInfo.CurrentCulture<br />
+    <b>CurrentUICulture</b>: @CultureInfo.CurrentUICulture
+</p>
+
+<h2>Greeting</h2>
+
+<p>
+    @Loc["Greeting"]
+</p>
+
+<p>
+    @greeting
+</p>
+
+@code {
+    private string? greeting;
+
+    protected override void OnInitialized()
+    {
+        greeting = Loc["Greeting"];
+    }
+}
